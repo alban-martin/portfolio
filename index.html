@@ -1,183 +1,89 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alban Martin</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Lien vers le fichier CSS -->
-</head>
-<body>
-  <div class="container">
-    <!-- Colonne gauche -->
-    <div class="sidebar">
-      <h1 class="title" onclick="resetSeries()">Alban Martin</h1>
-      <div class="series-section">
-        <h2 class="section-title">Séries</h2>
-        <ul class="series-list">
-          <li>
-            <h3 class="series-category">Photographie</h3>
-            <ul>
-              <li onclick="selectSeries('meurs')">meurs</li>
-              <li onclick="selectSeries('angelz')">angelz</li>
-              <li onclick="selectSeries('fou')">fou du métro</li>
-              <li onclick="selectSeries('punks')">even punks read</li>
-              <li onclick="selectSeries('saigon')">high on rebellion, from paris to sai gon</li>
-              <li onclick="selectSeries('danse')">danse dans le noir</li>
-              <li onclick="selectSeries('fw')">fashion week SS25</li>
-              <li onclick="selectSeries('heroin')">heroin, i know that</li>
-            </ul>
-          </li>
-          <li>
-            <h3 class="series-category">Vidéo</h3>
-            <ul>
-              <li onclick="selectSeries('peter')">peter - kingdom hearts</li>
-              <li onclick="selectSeries('doves')">pomtu27 - d0ves</li>
-            </ul>
-          </li>
-          <li>
-            <h3 class="series-category">Graphisme</h3>
-            <ul>
-              <li onclick="selectSeries('margin')">margin !</li>
-              <li onclick="selectSeries('tipsy')">tipsy</li>
-              <li onclick="selectSeries('bollore')">big bollore is watching you</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <ul class="links">
-        <li><a href="CV.pdf" target="_blank">CV</a></li>
-        <li><a href="https://www.instagram.com/oxywantsmore/" target="_blank">Contact</a></li>
-      </ul>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/11.2.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/11.2.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/11.2.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/11.2.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/11.2.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/11.2.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/11.2.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/11.2.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/11.2.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/11.2.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
     </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <!-- Colonne droite -->
-    <div class="main-content">
-      <div id="content" class="content-wrapper">
-        <img id="defaultImage" src="images/angelz.JPG" alt="Image par défaut" class="default-image">
-      </div>
-    </div>
-  </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-  <script>
-    const seriesImages = {
-      meurs: ['images/meurs/1.jpg', 'images/meurs/2.jpg','images/meurs/3.jpg', 'images/meurs/4.jpg'],
-      angelz: [
-        'images/angelz/11.jpg', 'images/angelz/2.jpg', 'images/angelz/3.jpg',
-        'images/angelz/4.jpg', 'images/angelz/5.jpg', 'images/angelz/6.jpg',
-        'images/angelz/7.jpg', 'images/angelz/8.jpg', 'images/angelz/9.jpg',
-        'images/angelz/10.jpg'
-      ],
-      fou: [
-        'images/fou/1.jpg', 'images/fou/3.jpg',
-        'images/fou/4.jpg', 'images/fou/5.jpg', 'images/fou/6.jpg',
-        'images/fou/7.jpg', 'images/fou/8.jpg', 'images/fou/9.jpg',
-        'images/fou/10.jpg'
-      ],
-      punks: [
-        'images/punks/1.jpg', 'images/punks/2.jpg', 'images/punks/3.jpg',
-        'images/punks/4.jpg', 'images/punks/5.jpg', 'images/punks/6.jpg',
-        'images/punks/7.jpg'
-      ],
-      saigon: [
-        'images/saigon/1.jpg', 'images/saigon/2.jpg', 'images/saigon/3.jpg',
-        'images/saigon/4.jpg', 'images/saigon/5.jpg', 'images/saigon/6.jpg',
-        'images/saigon/7.jpg', 'images/saigon/8.jpg', 'images/saigon/9.jpg',
-        'images/saigon/10.jpg'
-      ],
-      danse: [
-        'images/danse/1.jpg', 'images/danse/2.jpg', 'images/danse/3.jpg',
-        'images/danse/4.jpg', 'images/danse/5.jpg', 'images/danse/6.jpg',
-        'images/danse/7.jpg', 'images/danse/8.jpg', 'images/danse/9.jpg'
-      ],
-      fw: [
-        'images/fw/1.jpg', 'images/fw/2.jpg', 'images/fw/3.jpg',
-        'images/fw/4.jpg', 'images/fw/5.jpg', 'images/fw/6.jpg',
-        'images/fw/7.jpg', 'images/fw/8.jpg', 'images/fw/9.jpg',
-        'images/fw/10.jpg'
-      ],
-      heroin: [
-        'images/heroin/1.jpg', 'images/heroin/2.jpg', 'images/heroin/3.jpg',
-        'images/heroin/4.jpg', 'images/heroin/5.jpg', 'images/heroin/6.jpg'
-      ],
-      margin: ['images/margin/margin.jpg'],
-      tipsy: ['images/tipsy/tipsy.jpg'],
-      bollore: ['images/bollore/bollore.jpg']
-    };
-
-    function selectSeries(series) {
-  const content = document.getElementById("content");
-  
-  // Vider le contenu avant d'ajouter les nouvelles images ou le player
-  content.innerHTML = '';
-
-  if (series === 'peter') {
-    // Player YouTube pour "peter"
-    content.innerHTML = `
-      <div id="videoPlayers">
-        <div class="video-container">
-          <iframe 
-            width="800" 
-            height="450"
-            src="https://www.youtube.com/embed/mHix2dI5mBI" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    `;
-  } else if (series === 'doves') {
-    // Player YouTube pour "doves"
-    content.innerHTML = `
-      <div id="videoPlayers">
-        <div class="video-container">
-          <iframe 
-            width="800" 
-            height="450"
-            src="https://www.youtube.com/embed/bBfYKsAF9tk" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    `;
-  } else if (seriesImages[series]) {
-    // Afficher les images des autres séries
-    content.innerHTML += `<div class='image-grid'>` +
-      seriesImages[series].map(img => {
-        let extraClass = (series === 'margin' || series === 'tipsy' || series === 'bollore') ? 'poster-image' : 'series-image';
-        return `<img src='${img}' class='${extraClass}'>`;
-      }).join('') +
-      `</div>`;
-  }
-}
-
-function resetSeries() {
-  document.getElementById("content").innerHTML = `
-    <img id='defaultImage' src='images/angelz.JPG' alt='Image par défaut' class='default-image'>
-  `;
-}
-
-document.addEventListener("click", function(event) {
-  if (event.target.classList.contains("series-image")) {
-    showModal(event.target.src);
-  }
-});
-
-function showModal(imageSrc) {
-  let modal = document.createElement("div");
-  modal.classList.add("modal");
-  modal.innerHTML = `<img src="${imageSrc}" class="modal-content" onclick="closeModal()">`;
-  document.body.appendChild(modal);
-
-  modal.addEventListener("click", function() {
-    document.body.removeChild(modal);
-  });
-}
-
-
-  </script>
-
-</body>
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
 </html>
