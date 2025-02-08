@@ -38,8 +38,8 @@
             <h3 class="series-category">Graphisme</h3>
             <ul>
               <li onclick="selectSeries('margin')">margin !</li>
-              <li onclick="selectSeries('tipsy')">tipsy</li>
               <li onclick="selectSeries('bollore')">big bollore is watching you</li>
+              <li onclick="selectSeries('heroinposter')">heroin is a life sentence</li>
             </ul>
           </li>
         </ul>
@@ -100,8 +100,8 @@
         'images/heroin/4.jpg', 'images/heroin/5.jpg', 'images/heroin/6.jpg'
       ],
       margin: ['images/margin/margin.jpg'],
-      tipsy: ['images/tipsy/tipsy.jpg'],
-      bollore: ['images/bollore/bollore.jpg']
+      bollore: ['images/bollore/bollore.jpg'],
+      heroinposter: ['images/heroin/poster.jpg']
     };
 
     function selectSeries(series) {
@@ -146,7 +146,7 @@
     // Afficher les images des autres séries
     content.innerHTML += `<div class='image-grid'>` +
       seriesImages[series].map(img => {
-        let extraClass = (series === 'margin' || series === 'tipsy' || series === 'bollore') ? 'poster-image' : 'series-image';
+        let extraClass = (series === 'margin'  || series === 'bollore' || series === 'heroinposter') ? 'poster-image' : 'series-image';
         return `<img src='${img}' class='${extraClass}'>`;
       }).join('') +
       `</div>`;
